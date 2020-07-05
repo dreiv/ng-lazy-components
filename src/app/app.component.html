@@ -1,5 +1,5 @@
 <button (click)="loadFoo()">Load FooComponent</button>
 
 <ng-container *ngIf="foo">
-  <ng-template [ngComponentOutlet]="foo | async"></ng-template>
+  <ng-template [ngComponentOutlet]="foo | async" [ngComponentOutletInjector]="fooInjector"></ng-template>
 </ng-container>
