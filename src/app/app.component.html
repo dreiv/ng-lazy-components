@@ -3,3 +3,6 @@
 <ng-container *ngIf="foo">
   <ng-template [ngComponentOutlet]="foo | async" [ngComponentOutletInjector]="fooInjector"></ng-template>
 </ng-container>
+
+<button (click)="loadBar()">Load BarComponent</button>
+<ng-template #vcr></ng-template>
