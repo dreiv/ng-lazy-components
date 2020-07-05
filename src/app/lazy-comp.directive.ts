@@ -4,7 +4,6 @@ import {
   Directive,
   EventEmitter,
   Input,
-  Type,
   ViewContainerRef,
   OnDestroy
 } from '@angular/core';
@@ -19,11 +18,11 @@ export class LazyCompDirective implements OnDestroy {
   private subscription = new Subscription();
 
   @Input('lazyComp') set comp(type: any) {
-    // TODO: Support components replacement
     if (type) {
       const factory = this.resolver.resolveComponentFactory(type);
       this.compRef = this.vcr.createComponent(factory);
       this.refreshInputs(this._inputs);
+
       Object.keys(this._outputs).forEach((output) => {
         this.subscription.add(
           (this.compRef.instance[output] as EventEmitter<any>).subscribe(
@@ -54,14 +53,17 @@ export class LazyCompDirective implements OnDestroy {
     private resolver: ComponentFactoryResolver
   ) {}
 
-  private refreshInputs(inputs: any) {
+  private refreshInputs(inputs: any): void {
     Object.keys(inputs).forEach(
       (inputName) => (this.compRef.instance[inputName] = inputs[inputName])
     );
   }
 
   ngOnDestroy(): void {
-    this.compRef && this.compRef.destroy();
+    if (this.compRef) {
+      this.compRef.destroy();
+    }
+
     (this.compRef as any) = null;
     this.subscription.unsubscribe();
   }
