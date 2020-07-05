@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BarComponent } from './bar/bar.component';
+import { HomeComponent } from './home/home.component';
+import { LazyCompDirective } from './lazy-comp.directive';
 
 @NgModule({
-  declarations: [AppComponent, BarComponent],
+  declarations: [AppComponent, HomeComponent, LazyCompDirective],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

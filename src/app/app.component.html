@@ -1,8 +1,21 @@
+<nav>
+  <button routerLink="">Home</button>
+  <button routerLink="dashboard">Dashboard</button>
+</nav>
+
 <button (click)="loadFoo()">Load FooComponent</button>
 
 <ng-container *ngIf="foo">
   <ng-template [ngComponentOutlet]="foo | async" [ngComponentOutletInjector]="fooInjector"></ng-template>
 </ng-container>
 
-<button (click)="loadBar()">Load BarComponent</button>
+<button (click)="t()">Load BarComponent</button>
 <ng-template #vcr></ng-template>
+
+<button (click)="updateInputs()">Update Bar inputs</button>
+<ng-container *ngIf="bar">
+  <ng-template [lazyComp]="bar | async" [inputs]="inputs" [outputs]="outputs"></ng-template>
+</ng-container>
+
+
+<router-outlet></router-outlet>
