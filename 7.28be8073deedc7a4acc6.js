@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{MKLo:function(n,t,c){"use strict";c.r(t);var e=c("fXoL");t.default=(()=>{class n{constructor(){}ngOnInit(){}}return n.\u0275fac=function(t){return new(t||n)},n.\u0275cmp=e.Bb({type:n,selectors:[["app-bar"]],decls:2,vars:0,template:function(n,t){1&n&&(e.Nb(0,"p"),e.ec(1,"bar works!"),e.Mb())},encapsulation:2}),n})()}}]);
